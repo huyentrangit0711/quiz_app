@@ -25,8 +25,10 @@ class _QuizState extends State<Quiz> {
     // check done answer all questions
     if(selectedAnswers.length == questions.length) {
       /// reset selectedUsers
-      selectedAnswers = [];
+      // selectedAnswers = [];
+      setState(() {
       activeScreen = 'result-screen';
+    });
 
     }
   }
@@ -39,7 +41,7 @@ class _QuizState extends State<Quiz> {
       );
     }
     if(activeScreen == 'result-screen') {
-      screenWidget = ResultScreen();
+      screenWidget = ResultScreen(chosenAnswer: selectedAnswers,);
     }
     return MaterialApp(
       home: Scaffold(
